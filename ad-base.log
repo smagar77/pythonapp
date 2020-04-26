@@ -1,0 +1,817 @@
+2020-03-28 16:18:11,110 - INFO - _execute_context - select version()
+2020-03-28 16:18:11,111 - INFO - _execute_context - {}
+2020-03-28 16:18:11,112 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 16:18:11,113 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 16:18:11,114 - INFO - _execute_context - select current_schema()
+2020-03-28 16:18:11,114 - INFO - _execute_context - {}
+2020-03-28 16:18:11,115 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 16:18:11,115 - DEBUG - process_rows - Row ('public',)
+2020-03-28 16:18:11,116 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:18:11,116 - INFO - _cursor_execute - {}
+2020-03-28 16:18:11,117 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:18:11,117 - INFO - _cursor_execute - {}
+2020-03-28 16:18:11,117 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 16:18:11,118 - INFO - _execute_context - {}
+2020-03-28 16:18:11,118 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 16:18:11,118 - DEBUG - process_rows - Row ('on',)
+2020-03-28 16:18:11,119 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 16:18:11,120 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users 
+WHERE users.id = %(id_1)s
+2020-03-28 16:18:11,120 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:18:11,125 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 16:18:11,126 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 16:18:11,127 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date 
+FROM user_logins 
+WHERE %(param_1)s = user_logins.user_id
+2020-03-28 16:18:11,127 - INFO - _execute_context - {'param_1': 259}
+2020-03-28 16:18:11,128 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date')
+2020-03-28 16:18:11,128 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 16:18:11,129 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 16:34:04,305 - INFO - _execute_context - select version()
+2020-03-28 16:34:04,306 - INFO - _execute_context - {}
+2020-03-28 16:34:04,307 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 16:34:04,308 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 16:34:04,309 - INFO - _execute_context - select current_schema()
+2020-03-28 16:34:04,309 - INFO - _execute_context - {}
+2020-03-28 16:34:04,310 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 16:34:04,311 - DEBUG - process_rows - Row ('public',)
+2020-03-28 16:34:04,312 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:34:04,312 - INFO - _cursor_execute - {}
+2020-03-28 16:34:04,313 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:34:04,314 - INFO - _cursor_execute - {}
+2020-03-28 16:34:04,314 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 16:34:04,314 - INFO - _execute_context - {}
+2020-03-28 16:34:04,315 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 16:34:04,315 - DEBUG - process_rows - Row ('on',)
+2020-03-28 16:34:04,316 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 16:34:04,321 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on, user_logins_1.id AS user_logins_1_id, user_logins_1.user_id AS user_logins_1_user_id, user_logins_1.login_date AS user_logins_1_login_date 
+FROM users LEFT OUTER JOIN user_logins AS user_logins_1 ON users.id = user_logins_1.user_id 
+WHERE users.id = %(id_1)s
+2020-03-28 16:34:04,321 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:34:04,323 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on', 'user_logins_1_id', 'user_logins_1_user_id', 'user_logins_1_login_date')
+2020-03-28 16:34:04,323 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None, 1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 16:34:04,324 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None, 2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 16:37:46,584 - INFO - _execute_context - select version()
+2020-03-28 16:37:46,585 - INFO - _execute_context - {}
+2020-03-28 16:37:46,586 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 16:37:46,587 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 16:37:46,589 - INFO - _execute_context - select current_schema()
+2020-03-28 16:37:46,589 - INFO - _execute_context - {}
+2020-03-28 16:37:46,590 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 16:37:46,590 - DEBUG - process_rows - Row ('public',)
+2020-03-28 16:37:46,591 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:37:46,591 - INFO - _cursor_execute - {}
+2020-03-28 16:37:46,592 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:37:46,592 - INFO - _cursor_execute - {}
+2020-03-28 16:37:46,592 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 16:37:46,592 - INFO - _execute_context - {}
+2020-03-28 16:37:46,593 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 16:37:46,593 - DEBUG - process_rows - Row ('on',)
+2020-03-28 16:37:46,593 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 16:37:46,598 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users 
+WHERE users.id = %(id_1)s
+2020-03-28 16:37:46,599 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:37:46,600 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 16:37:46,601 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 16:37:46,603 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date, anon_1.users_id AS anon_1_users_id 
+FROM (SELECT users.id AS users_id 
+FROM users 
+WHERE users.id = %(id_1)s) AS anon_1 JOIN user_logins ON anon_1.users_id = user_logins.user_id ORDER BY anon_1.users_id
+2020-03-28 16:37:46,604 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:37:46,605 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date', 'anon_1_users_id')
+2020-03-28 16:37:46,605 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 16:37:46,606 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 16:38:11,042 - INFO - _execute_context - select version()
+2020-03-28 16:38:11,043 - INFO - _execute_context - {}
+2020-03-28 16:38:11,044 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 16:38:11,044 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 16:38:11,046 - INFO - _execute_context - select current_schema()
+2020-03-28 16:38:11,046 - INFO - _execute_context - {}
+2020-03-28 16:38:11,066 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 16:38:11,066 - DEBUG - process_rows - Row ('public',)
+2020-03-28 16:38:11,067 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:38:11,067 - INFO - _cursor_execute - {}
+2020-03-28 16:38:11,068 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:38:11,068 - INFO - _cursor_execute - {}
+2020-03-28 16:38:11,068 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 16:38:11,068 - INFO - _execute_context - {}
+2020-03-28 16:38:11,069 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 16:38:11,069 - DEBUG - process_rows - Row ('on',)
+2020-03-28 16:38:11,069 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 16:38:11,070 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users 
+WHERE users.id = %(id_1)s
+2020-03-28 16:38:11,071 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:38:11,072 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 16:38:11,072 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 16:38:11,074 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date, anon_1.users_id AS anon_1_users_id 
+FROM (SELECT users.id AS users_id 
+FROM users 
+WHERE users.id = %(id_1)s) AS anon_1 JOIN user_logins ON anon_1.users_id = user_logins.user_id ORDER BY anon_1.users_id
+2020-03-28 16:38:11,074 - INFO - _execute_context - {'id_1': 259}
+2020-03-28 16:38:11,075 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date', 'anon_1_users_id')
+2020-03-28 16:38:11,076 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 16:38:11,082 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 16:52:24,867 - INFO - _execute_context - select version()
+2020-03-28 16:52:24,867 - INFO - _execute_context - {}
+2020-03-28 16:52:24,868 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 16:52:24,868 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 16:52:24,870 - INFO - _execute_context - select current_schema()
+2020-03-28 16:52:24,870 - INFO - _execute_context - {}
+2020-03-28 16:52:24,871 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 16:52:24,871 - DEBUG - process_rows - Row ('public',)
+2020-03-28 16:52:24,872 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:52:24,873 - INFO - _cursor_execute - {}
+2020-03-28 16:52:24,874 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 16:52:24,874 - INFO - _cursor_execute - {}
+2020-03-28 16:52:24,875 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 16:52:24,875 - INFO - _execute_context - {}
+2020-03-28 16:52:24,875 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 16:52:24,875 - DEBUG - process_rows - Row ('on',)
+2020-03-28 16:52:24,876 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 16:52:24,877 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users
+2020-03-28 16:52:24,877 - INFO - _execute_context - {}
+2020-03-28 16:52:24,878 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 16:52:24,882 - DEBUG - process_rows - Row (240, 'user1584788842.692244', 'user141584788842.6922526', 'user14Fname1584788842.6922548', 'user14Lname1584788842.6922562', 'user14@yopmail.com1584788842.6922581', None)
+2020-03-28 16:52:24,883 - DEBUG - process_rows - Row (255, 'user002', 'user002', 'user002', 'user002', 'user002@yopmail.com', None)
+2020-03-28 16:52:24,883 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 16:52:24,884 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date, anon_1.users_id AS anon_1_users_id 
+FROM (SELECT users.id AS users_id 
+FROM users) AS anon_1 JOIN user_logins ON anon_1.users_id = user_logins.user_id ORDER BY anon_1.users_id
+2020-03-28 16:52:24,884 - INFO - _execute_context - {}
+2020-03-28 16:52:24,886 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date', 'anon_1_users_id')
+2020-03-28 16:52:24,886 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 16:52:24,887 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 17:19:05,252 - INFO - _execute_context - select version()
+2020-03-28 17:19:05,253 - INFO - _execute_context - {}
+2020-03-28 17:19:05,254 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 17:19:05,255 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 17:19:05,256 - INFO - _execute_context - select current_schema()
+2020-03-28 17:19:05,256 - INFO - _execute_context - {}
+2020-03-28 17:19:05,257 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 17:19:05,257 - DEBUG - process_rows - Row ('public',)
+2020-03-28 17:19:05,258 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:19:05,258 - INFO - _cursor_execute - {}
+2020-03-28 17:19:05,259 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:19:05,259 - INFO - _cursor_execute - {}
+2020-03-28 17:19:05,259 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 17:19:05,259 - INFO - _execute_context - {}
+2020-03-28 17:19:05,260 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 17:19:05,260 - DEBUG - process_rows - Row ('on',)
+2020-03-28 17:19:05,261 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 17:19:05,263 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on, user_logins_1.id AS user_logins_1_id, user_logins_1.user_id AS user_logins_1_user_id, user_logins_1.login_date AS user_logins_1_login_date 
+FROM users LEFT OUTER JOIN user_logins AS user_logins_1 ON users.id = user_logins_1.user_id
+2020-03-28 17:19:05,263 - INFO - _execute_context - {}
+2020-03-28 17:19:05,268 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on', 'user_logins_1_id', 'user_logins_1_user_id', 'user_logins_1_login_date')
+2020-03-28 17:19:05,269 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None, 1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 17:19:05,270 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None, 2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)))
+2020-03-28 17:19:05,270 - DEBUG - process_rows - Row (255, 'user002', 'user002', 'user002', 'user002', 'user002@yopmail.com', None, None, None, None)
+2020-03-28 17:19:05,270 - DEBUG - process_rows - Row (240, 'user1584788842.692244', 'user141584788842.6922526', 'user14Fname1584788842.6922548', 'user14Lname1584788842.6922562', 'user14@yopmail.com1584788842.6922581', None, None, None, None)
+2020-03-28 17:23:20,152 - INFO - _execute_context - select version()
+2020-03-28 17:23:20,153 - INFO - _execute_context - {}
+2020-03-28 17:23:20,156 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 17:23:20,157 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 17:23:20,159 - INFO - _execute_context - select current_schema()
+2020-03-28 17:23:20,160 - INFO - _execute_context - {}
+2020-03-28 17:23:20,161 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 17:23:20,161 - DEBUG - process_rows - Row ('public',)
+2020-03-28 17:23:20,162 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:23:20,168 - INFO - _cursor_execute - {}
+2020-03-28 17:23:20,169 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:23:20,169 - INFO - _cursor_execute - {}
+2020-03-28 17:23:20,170 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 17:23:20,171 - INFO - _execute_context - {}
+2020-03-28 17:23:20,172 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 17:23:20,172 - DEBUG - process_rows - Row ('on',)
+2020-03-28 17:23:20,173 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 17:23:20,175 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users
+2020-03-28 17:23:20,176 - INFO - _execute_context - {}
+2020-03-28 17:23:20,178 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 17:23:20,186 - DEBUG - process_rows - Row (240, 'user1584788842.692244', 'user141584788842.6922526', 'user14Fname1584788842.6922548', 'user14Lname1584788842.6922562', 'user14@yopmail.com1584788842.6922581', None)
+2020-03-28 17:23:20,187 - DEBUG - process_rows - Row (255, 'user002', 'user002', 'user002', 'user002', 'user002@yopmail.com', None)
+2020-03-28 17:23:20,187 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 17:23:20,193 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date, anon_1.users_id AS anon_1_users_id 
+FROM (SELECT users.id AS users_id 
+FROM users) AS anon_1 JOIN user_logins ON anon_1.users_id = user_logins.user_id ORDER BY anon_1.users_id
+2020-03-28 17:23:20,194 - INFO - _execute_context - {}
+2020-03-28 17:23:20,200 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date', 'anon_1_users_id')
+2020-03-28 17:23:20,200 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 17:23:20,201 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 17:23:56,559 - INFO - _execute_context - select version()
+2020-03-28 17:23:56,559 - INFO - _execute_context - {}
+2020-03-28 17:23:56,561 - DEBUG - _init_metadata - Col ('version',)
+2020-03-28 17:23:56,562 - DEBUG - process_rows - Row ('PostgreSQL 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0, 64-bit',)
+2020-03-28 17:23:56,563 - INFO - _execute_context - select current_schema()
+2020-03-28 17:23:56,563 - INFO - _execute_context - {}
+2020-03-28 17:23:56,564 - DEBUG - _init_metadata - Col ('current_schema',)
+2020-03-28 17:23:56,564 - DEBUG - process_rows - Row ('public',)
+2020-03-28 17:23:56,565 - INFO - _cursor_execute - SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:23:56,565 - INFO - _cursor_execute - {}
+2020-03-28 17:23:56,566 - INFO - _cursor_execute - SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-03-28 17:23:56,566 - INFO - _cursor_execute - {}
+2020-03-28 17:23:56,566 - INFO - _execute_context - show standard_conforming_strings
+2020-03-28 17:23:56,566 - INFO - _execute_context - {}
+2020-03-28 17:23:56,567 - DEBUG - _init_metadata - Col ('standard_conforming_strings',)
+2020-03-28 17:23:56,567 - DEBUG - process_rows - Row ('on',)
+2020-03-28 17:23:56,567 - INFO - _begin_impl - BEGIN (implicit)
+2020-03-28 17:23:56,568 - INFO - _execute_context - SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.email AS users_email, users.created_on AS users_created_on 
+FROM users
+2020-03-28 17:23:56,569 - INFO - _execute_context - {}
+2020-03-28 17:23:56,570 - DEBUG - _init_metadata - Col ('users_id', 'users_username', 'users_password', 'users_first_name', 'users_last_name', 'users_email', 'users_created_on')
+2020-03-28 17:23:56,574 - DEBUG - process_rows - Row (240, 'user1584788842.692244', 'user141584788842.6922526', 'user14Fname1584788842.6922548', 'user14Lname1584788842.6922562', 'user14@yopmail.com1584788842.6922581', None)
+2020-03-28 17:23:56,574 - DEBUG - process_rows - Row (255, 'user002', 'user002', 'user002', 'user002', 'user002@yopmail.com', None)
+2020-03-28 17:23:56,574 - DEBUG - process_rows - Row (259, 'sachinmagar', 'sachinmagar', 'Sachin', 'Magar', 'sachinmagar@yopmail.com', None)
+2020-03-28 17:23:56,576 - INFO - _execute_context - SELECT user_logins.id AS user_logins_id, user_logins.user_id AS user_logins_user_id, user_logins.login_date AS user_logins_login_date, anon_1.users_id AS anon_1_users_id 
+FROM (SELECT users.id AS users_id 
+FROM users) AS anon_1 JOIN user_logins ON anon_1.users_id = user_logins.user_id ORDER BY anon_1.users_id
+2020-03-28 17:23:56,576 - INFO - _execute_context - {}
+2020-03-28 17:23:56,577 - DEBUG - _init_metadata - Col ('user_logins_id', 'user_logins_user_id', 'user_logins_login_date', 'anon_1_users_id')
+2020-03-28 17:23:56,578 - DEBUG - process_rows - Row (1, 259, datetime.datetime(2020, 3, 28, 11, 30, 21, 850006, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-28 17:23:56,578 - DEBUG - process_rows - Row (2, 259, datetime.datetime(2020, 3, 28, 11, 34, 23, 630011, tzinfo=psycopg2.tz.FixedOffsetTimezone(offset=330, name=None)), 259)
+2020-03-29 13:13:24,195 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-03-29 13:13:24,197 - INFO - _log -  * Restarting with stat
+2020-03-29 13:13:25,200 - WARNING - _log -  * Debugger is active!
+2020-03-29 13:13:25,216 - INFO - _log -  * Debugger PIN: 115-137-968
+2020-03-29 13:13:44,385 - INFO - _log - 127.0.0.1 - - [29/Mar/2020 13:13:44] "[37mGET / HTTP/1.1[0m" 200 -
+2020-04-26 00:22:26,997 - ERROR - wrapped - Error: Directory migrations already exists and is not empty
+2020-04-26 00:25:12,099 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 00:25:12,100 - INFO - _log -  * Restarting with stat
+2020-04-26 00:25:12,875 - WARNING - _log -  * Debugger is active!
+2020-04-26 00:25:13,519 - INFO - _log -  * Debugger PIN: 216-222-867
+2020-04-26 00:25:29,826 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:25:29] "[37mGET / HTTP/1.1[0m" 200 -
+2020-04-26 00:25:37,174 - ERROR - error_router - None
+2020-04-26 00:25:37,174 - ERROR - error_router - None
+2020-04-26 00:25:37,177 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:25:37] "[32mGET /users HTTP/1.1[0m" 308 -
+2020-04-26 00:25:37,244 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:25:37] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 00:26:40,693 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/__init__.py', reloading
+2020-04-26 00:26:41,121 - INFO - _log -  * Restarting with stat
+2020-04-26 00:42:37,063 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 00:42:37,064 - INFO - _log -  * Restarting with stat
+2020-04-26 00:42:37,929 - WARNING - _log -  * Debugger is active!
+2020-04-26 00:42:37,930 - INFO - _log -  * Debugger PIN: 216-222-867
+2020-04-26 00:42:55,473 - ERROR - error_router - None
+2020-04-26 00:42:55,473 - ERROR - error_router - None
+2020-04-26 00:42:55,479 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:42:55] "[33mGET /login/ HTTP/1.1[0m" 404 -
+2020-04-26 00:42:55,606 - ERROR - error_router - None
+2020-04-26 00:42:55,606 - ERROR - error_router - None
+2020-04-26 00:42:55,607 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:42:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-04-26 00:43:15,892 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:43:15] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 00:43:22,271 - ERROR - error_router - None
+2020-04-26 00:43:22,271 - ERROR - error_router - None
+2020-04-26 00:43:22,273 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:43:22] "[33mGET /users/login HTTP/1.1[0m" 404 -
+2020-04-26 00:43:22,470 - ERROR - error_router - None
+2020-04-26 00:43:22,470 - ERROR - error_router - None
+2020-04-26 00:43:22,471 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:43:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-04-26 00:44:33,813 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 00:44:33] "[31m[1mPOST /users/ HTTP/1.1[0m" 400 -
+2020-04-26 02:10:06,383 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:10:06] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:16:00,304 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:16:00] "[31m[1mPOST /users/ HTTP/1.1[0m" 400 -
+2020-04-26 02:16:12,904 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:16:12] "[31m[1mPOST /users/ HTTP/1.1[0m" 400 -
+2020-04-26 02:20:05,259 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:20:05] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:21:36,089 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:21:36] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:21:57,455 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:21:57] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:22:16,718 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:22:16] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:24:40,106 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:24:40] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 02:24:50,043 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 02:24:50] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:31:49,485 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:31:49] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:34:27,726 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:34:27] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:35:40,499 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:35:40] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:38:32,373 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:38:32] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:43:46,579 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:43:46] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:44:01,330 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:44:01] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:44:37,018 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:44:37] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:45:00,807 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:45:00] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:46:03,075 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:46:03] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:47:28,256 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:47:28] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:48:01,817 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:48:01] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:48:32,001 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:48:32] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:49:05,274 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:49:05] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:50:50,730 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:50:50] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:51:23,471 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:51:23] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 08:52:01,873 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 08:52:01] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:01:23,309 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:01:23] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:02:48,512 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:02:48] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:03:04,058 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:03:04] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:03:47,340 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:03:47] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:04:04,719 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:04:04] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:09:11,036 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:09:11] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:26:20,340 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 09:26:20,341 - INFO - _log -  * Restarting with stat
+2020-04-26 09:26:20,945 - WARNING - _log -  * Debugger is active!
+2020-04-26 09:26:21,508 - INFO - _log -  * Debugger PIN: 178-692-681
+2020-04-26 09:26:24,490 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:26:24] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:26:30,196 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:26:30] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:39:01,977 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 09:39:01,980 - INFO - _log -  * Restarting with stat
+2020-04-26 09:39:03,394 - WARNING - _log -  * Debugger is active!
+2020-04-26 09:39:04,635 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 09:39:28,288 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:39:28] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:39:33,102 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:39:33] "[37mGET / HTTP/1.1[0m" 200 -
+2020-04-26 09:39:40,820 - ERROR - error_router - None
+2020-04-26 09:39:40,820 - ERROR - error_router - None
+2020-04-26 09:39:40,822 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:39:40] "[32mGET /users HTTP/1.1[0m" 308 -
+2020-04-26 09:39:40,856 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:39:40] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:40:53,061 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:40:53] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:44:08,969 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:44:08] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:46:13,899 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:46:13] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:46:23,676 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:46:23] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:47:40,438 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:47:40] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:50:48,482 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:50:48] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:55:28,208 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:55:28] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:56:14,721 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:56:14] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:56:38,343 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:56:38] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 09:57:02,156 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 09:57:02] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:02:44,099 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:02:44] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:03:16,640 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:03:16] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:04:39,813 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:04:39] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:05:00,233 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:05:00] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:07:37,432 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:07:37] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:08:01,023 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:08:01] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:08:22,952 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:08:22] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:09:34,575 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:09:34] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:11:17,012 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:11:17] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:12:21,769 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:12:21] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:13:19,500 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:13:19] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:13:25,045 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:13:25] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:13:45,165 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:13:45] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:14:17,060 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:14:17] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:16:19,491 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:16:19] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:16:39,557 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:16:39] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:16:59,116 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:16:59] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:17:56,904 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:17:56] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:18:41,072 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:18:41] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:19:22,255 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:19:22] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:20:04,167 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:20:04] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:20:18,718 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:20:18] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 10:22:28,430 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 10:22:28] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 12:25:10,673 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 12:25:10,673 - INFO - _log -  * Restarting with stat
+2020-04-26 12:25:11,821 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:25:11,827 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:25:20,841 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:25:20] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:25:20,951 - ERROR - error_router - None
+2020-04-26 12:25:20,951 - ERROR - error_router - None
+2020-04-26 12:25:20,952 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:25:20] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:27:19,061 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:27:19,378 - INFO - _log -  * Restarting with stat
+2020-04-26 12:27:20,275 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:27:20,276 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:27:31,776 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:27:31] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:27:31,903 - ERROR - error_router - None
+2020-04-26 12:27:31,903 - ERROR - error_router - None
+2020-04-26 12:27:31,906 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:27:31] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:29:09,292 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:29:09,550 - INFO - _log -  * Restarting with stat
+2020-04-26 12:29:10,605 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:29:10,606 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:29:15,126 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:29:15] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:29:15,348 - ERROR - error_router - None
+2020-04-26 12:29:15,348 - ERROR - error_router - None
+2020-04-26 12:29:15,351 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:29:15] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:30:41,015 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/__init__.py', reloading
+2020-04-26 12:30:41,306 - INFO - _log -  * Restarting with stat
+2020-04-26 12:30:43,212 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:30:43,218 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:31:03,757 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:31:03] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:31:03,906 - ERROR - error_router - None
+2020-04-26 12:31:03,906 - ERROR - error_router - None
+2020-04-26 12:31:03,912 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:31:03] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:32:49,476 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:32:49,850 - INFO - _log -  * Restarting with stat
+2020-04-26 12:32:51,472 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:32:51,475 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:33:01,647 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:33:01] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:33:01,812 - ERROR - error_router - None
+2020-04-26 12:33:01,812 - ERROR - error_router - None
+2020-04-26 12:33:01,813 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:33:01] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:33:41,702 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:33:42,064 - INFO - _log -  * Restarting with stat
+2020-04-26 12:33:43,050 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:33:43,051 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:33:48,980 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:33:48] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:33:49,107 - ERROR - error_router - None
+2020-04-26 12:33:49,107 - ERROR - error_router - None
+2020-04-26 12:33:49,109 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:33:49] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:34:08,896 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 12:34:08,897 - INFO - _log -  * Restarting with stat
+2020-04-26 12:34:09,577 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:34:09,578 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:34:16,293 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:34:16] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:34:16,441 - ERROR - error_router - None
+2020-04-26 12:34:16,441 - ERROR - error_router - None
+2020-04-26 12:34:16,444 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:34:16] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:34:50,673 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:34:50,939 - INFO - _log -  * Restarting with stat
+2020-04-26 12:34:52,527 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:34:52,531 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:34:53,569 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:34:53,895 - INFO - _log -  * Restarting with stat
+2020-04-26 12:34:55,746 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:34:55,747 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:34:59,607 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:34:59] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:34:59,744 - ERROR - error_router - None
+2020-04-26 12:34:59,744 - ERROR - error_router - None
+2020-04-26 12:34:59,747 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:34:59] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:36:13,541 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:36:13,802 - INFO - _log -  * Restarting with stat
+2020-04-26 12:36:14,821 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:36:14,822 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:36:17,802 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 12:36:17,803 - INFO - _log -  * Restarting with stat
+2020-04-26 12:36:18,639 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:36:18,640 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:36:22,174 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:36:22] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:36:22,295 - ERROR - error_router - None
+2020-04-26 12:36:22,295 - ERROR - error_router - None
+2020-04-26 12:36:22,300 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:36:22] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:39:10,618 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:39:10,797 - INFO - _log -  * Restarting with stat
+2020-04-26 12:39:11,783 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:39:11,784 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:39:12,870 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 12:39:13,241 - INFO - _log -  * Restarting with stat
+2020-04-26 12:39:14,916 - WARNING - _log -  * Debugger is active!
+2020-04-26 12:39:14,916 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 12:39:27,386 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:39:27] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:39:27,516 - ERROR - error_router - None
+2020-04-26 12:39:27,516 - ERROR - error_router - None
+2020-04-26 12:39:27,518 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:39:27] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:42:33,484 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:42:33] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:42:33,533 - ERROR - error_router - None
+2020-04-26 12:42:33,533 - ERROR - error_router - None
+2020-04-26 12:42:33,535 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:42:33] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:43:18,970 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:43:18] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:43:19,013 - ERROR - error_router - None
+2020-04-26 12:43:19,013 - ERROR - error_router - None
+2020-04-26 12:43:19,015 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:43:19] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:45:04,499 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:45:04] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:45:04,543 - ERROR - error_router - None
+2020-04-26 12:45:04,543 - ERROR - error_router - None
+2020-04-26 12:45:04,546 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:45:04] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:45:18,660 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:45:18] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 12:46:30,378 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:46:30] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 12:48:26,011 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:48:26] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:48:31,834 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:48:31] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:48:31,912 - ERROR - error_router - None
+2020-04-26 12:48:31,912 - ERROR - error_router - None
+2020-04-26 12:48:31,914 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:48:31] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:53:49,284 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:53:49] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:53:49,392 - ERROR - error_router - None
+2020-04-26 12:53:49,392 - ERROR - error_router - None
+2020-04-26 12:53:49,395 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:53:49] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 12:58:15,601 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:58:15] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:58:15,979 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:58:15] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 12:58:16,105 - ERROR - error_router - None
+2020-04-26 12:58:16,105 - ERROR - error_router - None
+2020-04-26 12:58:16,108 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 12:58:16] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:00:59,009 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:00:59] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:00:59,207 - ERROR - error_router - None
+2020-04-26 13:00:59,207 - ERROR - error_router - None
+2020-04-26 13:00:59,213 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:00:59] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:01:15,211 - ERROR - error_router - None
+2020-04-26 13:01:15,211 - ERROR - error_router - None
+2020-04-26 13:01:15,212 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:01:15] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:01:31,507 - ERROR - error_router - None
+2020-04-26 13:01:31,507 - ERROR - error_router - None
+2020-04-26 13:01:31,513 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:01:31] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:02:53,724 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:02:53] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:02:53,971 - ERROR - error_router - None
+2020-04-26 13:02:53,971 - ERROR - error_router - None
+2020-04-26 13:02:53,973 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:02:53] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:03:19,524 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:03:19] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:03:19,550 - ERROR - error_router - None
+2020-04-26 13:03:19,550 - ERROR - error_router - None
+2020-04-26 13:03:19,551 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:03:19] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:04:40,240 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:04:40] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:04:40,387 - ERROR - error_router - None
+2020-04-26 13:04:40,387 - ERROR - error_router - None
+2020-04-26 13:04:40,388 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:04:40] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:05:24,433 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:05:24] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:05:24,456 - ERROR - error_router - None
+2020-04-26 13:05:24,456 - ERROR - error_router - None
+2020-04-26 13:05:24,465 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:05:24] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:05:55,167 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:05:55] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:05:55,272 - ERROR - error_router - None
+2020-04-26 13:05:55,272 - ERROR - error_router - None
+2020-04-26 13:05:55,273 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:05:55] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:07:44,706 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:07:44] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:07:44,788 - ERROR - error_router - None
+2020-04-26 13:07:44,788 - ERROR - error_router - None
+2020-04-26 13:07:44,790 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:07:44] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:08:26,956 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:08:26] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:08:26,973 - ERROR - error_router - None
+2020-04-26 13:08:26,973 - ERROR - error_router - None
+2020-04-26 13:08:26,974 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:08:26] "[31m[1mPOST /login/ HTTP/1.1[0m" 400 -
+2020-04-26 13:08:37,775 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:08:37] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:08:37,807 - ERROR - error_router - None
+2020-04-26 13:08:37,807 - ERROR - error_router - None
+2020-04-26 13:08:37,809 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:08:37] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:09:05,659 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:09:05] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:09:05,704 - ERROR - error_router - None
+2020-04-26 13:09:05,704 - ERROR - error_router - None
+2020-04-26 13:09:05,705 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:09:05] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:09:36,992 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 13:09:36,993 - INFO - _log -  * Restarting with stat
+2020-04-26 13:09:37,716 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:09:37,717 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:09:58,943 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:09:58] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:09:59,025 - ERROR - error_router - None
+2020-04-26 13:09:59,025 - ERROR - error_router - None
+2020-04-26 13:09:59,027 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:09:59] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:11:24,594 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:11:24,777 - INFO - _log -  * Restarting with stat
+2020-04-26 13:11:25,806 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:11:25,807 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:11:28,881 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:11:29,005 - INFO - _log -  * Restarting with stat
+2020-04-26 13:11:30,005 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:11:30,005 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:11:38,179 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:11:38] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:11:38,369 - ERROR - error_router - None
+2020-04-26 13:11:38,369 - ERROR - error_router - None
+2020-04-26 13:11:38,370 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:11:38] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:12:12,036 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:12:12,273 - INFO - _log -  * Restarting with stat
+2020-04-26 13:12:13,545 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:12:13,546 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:12:22,828 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:12:23,126 - INFO - _log -  * Restarting with stat
+2020-04-26 13:12:24,031 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:12:24,031 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:12:33,850 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:12:33] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:12:34,038 - ERROR - error_router - None
+2020-04-26 13:12:34,038 - ERROR - error_router - None
+2020-04-26 13:12:34,042 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:12:34] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:13:00,821 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:13:01,187 - INFO - _log -  * Restarting with stat
+2020-04-26 13:13:02,528 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:13:02,528 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:13:05,421 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:13:05] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:13:05,554 - ERROR - error_router - None
+2020-04-26 13:13:05,554 - ERROR - error_router - None
+2020-04-26 13:13:05,558 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:13:05] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:13:34,300 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:13:34,590 - INFO - _log -  * Restarting with stat
+2020-04-26 13:13:36,323 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:13:36,323 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:13:41,444 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:13:41,667 - INFO - _log -  * Restarting with stat
+2020-04-26 13:13:42,818 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:13:42,818 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:13:49,987 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:13:49] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:13:50,132 - ERROR - error_router - None
+2020-04-26 13:13:50,132 - ERROR - error_router - None
+2020-04-26 13:13:50,134 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:13:50] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:14:35,220 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:14:35,449 - INFO - _log -  * Restarting with stat
+2020-04-26 13:14:36,310 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:14:36,311 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:14:37,348 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:14:37,581 - INFO - _log -  * Restarting with stat
+2020-04-26 13:14:39,024 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:14:39,025 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:14:46,477 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:14:46] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:14:46,606 - ERROR - error_router - None
+2020-04-26 13:14:46,606 - ERROR - error_router - None
+2020-04-26 13:14:46,608 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:14:46] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:15:26,228 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:15:26,408 - INFO - _log -  * Restarting with stat
+2020-04-26 13:15:27,387 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:15:27,387 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:15:31,524 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:15:31,794 - INFO - _log -  * Restarting with stat
+2020-04-26 13:15:35,310 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 13:15:35,311 - INFO - _log -  * Restarting with stat
+2020-04-26 13:15:36,031 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:15:36,031 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:15:41,704 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:15:41] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:15:41,817 - ERROR - error_router - None
+2020-04-26 13:15:41,817 - ERROR - error_router - None
+2020-04-26 13:15:41,825 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:15:41] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:16:10,896 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:16:11,094 - INFO - _log -  * Restarting with stat
+2020-04-26 13:16:12,003 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:16:12,004 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:17:17,577 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:17:17,827 - INFO - _log -  * Restarting with stat
+2020-04-26 13:17:19,263 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:17:19,264 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:17:28,464 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:17:28] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:17:28,599 - ERROR - error_router - None
+2020-04-26 13:17:28,599 - ERROR - error_router - None
+2020-04-26 13:17:28,601 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:17:28] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:18:01,266 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:18:01,475 - INFO - _log -  * Restarting with stat
+2020-04-26 13:20:08,641 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 13:20:08,643 - INFO - _log -  * Restarting with stat
+2020-04-26 13:20:09,447 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:20:09,452 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:20:25,789 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:20:25] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:20:25,941 - ERROR - error_router - None
+2020-04-26 13:20:25,941 - ERROR - error_router - None
+2020-04-26 13:20:25,946 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:20:25] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:23:33,492 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:23:33,645 - INFO - _log -  * Restarting with stat
+2020-04-26 13:23:34,787 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:23:34,787 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:23:45,309 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:23:45] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:23:45,549 - ERROR - error_router - None
+2020-04-26 13:23:45,549 - ERROR - error_router - None
+2020-04-26 13:23:45,552 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:23:45] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:24:38,452 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:24:38,595 - INFO - _log -  * Restarting with stat
+2020-04-26 13:24:39,454 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:24:39,454 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:25:20,362 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:25:20] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:25:20,498 - ERROR - error_router - None
+2020-04-26 13:25:20,498 - ERROR - error_router - None
+2020-04-26 13:25:20,503 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:25:20] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:27:29,887 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:27:30,028 - INFO - _log -  * Restarting with stat
+2020-04-26 13:27:31,022 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:27:31,023 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:27:43,414 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:27:43,652 - INFO - _log -  * Restarting with stat
+2020-04-26 13:27:44,364 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:27:44,365 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:27:46,686 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:27:46] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:27:46,934 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:27:46] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:28:10,903 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:28:10] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:28:10,935 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:28:10] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:28:29,372 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:28:29,640 - INFO - _log -  * Restarting with stat
+2020-04-26 13:28:30,430 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:28:30,430 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:28:35,516 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:28:35] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:28:35,672 - ERROR - error_router - None
+2020-04-26 13:28:35,672 - ERROR - error_router - None
+2020-04-26 13:28:35,674 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:28:35] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 13:29:03,508 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:29:03,875 - INFO - _log -  * Restarting with stat
+2020-04-26 13:29:05,004 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:29:05,005 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:29:13,690 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:29:13] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:29:13,868 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:29:13] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:29:43,916 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:29:44,266 - INFO - _log -  * Restarting with stat
+2020-04-26 13:29:45,974 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:29:45,975 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:29:49,070 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:29:49,378 - INFO - _log -  * Restarting with stat
+2020-04-26 13:29:51,153 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:29:51,159 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:29:56,065 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:29:56] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:29:56,202 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:29:56] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:30:19,829 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:30:20,130 - INFO - _log -  * Restarting with stat
+2020-04-26 13:30:21,505 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:30:21,517 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:30:24,144 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:30:24] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:30:24,293 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:30:24] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:30:39,973 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 13:30:40,193 - INFO - _log -  * Restarting with stat
+2020-04-26 13:30:40,968 - WARNING - _log -  * Debugger is active!
+2020-04-26 13:30:40,969 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 13:30:43,511 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:30:43] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:30:43,652 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:30:43] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:31:43,665 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:31:43] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:31:43,727 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:31:43] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:38:22,036 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:38:22] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:38:22,067 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:38:22] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:38:28,241 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:38:28] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:38:28,382 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:38:28] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:42:29,195 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:42:29] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 13:42:29,235 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 13:42:29] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:28:39,972 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:28:39] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:28:40,025 - ERROR - error_router - None
+2020-04-26 14:28:40,025 - ERROR - error_router - None
+2020-04-26 14:28:40,027 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:28:40] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 14:28:52,278 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:28:52] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:28:52,349 - ERROR - error_router - None
+2020-04-26 14:28:52,349 - ERROR - error_router - None
+2020-04-26 14:28:52,350 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:28:52] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 14:29:11,151 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:29:11] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:29:11,209 - ERROR - error_router - None
+2020-04-26 14:29:11,209 - ERROR - error_router - None
+2020-04-26 14:29:11,210 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:29:11] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 14:29:30,660 - INFO - _log -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-04-26 14:29:30,661 - INFO - _log -  * Restarting with stat
+2020-04-26 14:29:31,383 - WARNING - _log -  * Debugger is active!
+2020-04-26 14:29:31,384 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 14:29:38,821 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:29:38] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:29:38,930 - ERROR - error_router - None
+2020-04-26 14:29:38,930 - ERROR - error_router - None
+2020-04-26 14:29:38,931 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:29:38] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+2020-04-26 14:30:53,860 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:30:53] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 14:30:53,936 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 14:30:53] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 15:39:00,029 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 15:39:00] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 15:39:00,064 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 15:39:00] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 15:39:17,595 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 15:39:17] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 15:39:17,667 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 15:39:17] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 16:54:08,545 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 16:54:08] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 16:54:08,610 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 16:54:08] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:22:59,021 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:22:59] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:22:59,063 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:22:59] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:37:08,920 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:37:08] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:37:08,946 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:37:08] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:43:50,536 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:43:50] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:43:50,574 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:43:50] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:51:13,412 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:51:13] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:51:13,443 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:51:13] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:53:23,512 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:53:23] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 17:53:23,540 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 17:53:23] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 18:18:41,468 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:18:41] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:19:19,601 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:19:19] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:20:26,525 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:20:26] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:21:15,735 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:21:15] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:21:24,915 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:21:24] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:23:03,597 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:23:03] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:23:17,571 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:23:17] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:23:39,496 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:23:39] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:24:06,574 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:24:06] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:25:37,479 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:25:37] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:25:48,331 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:25:48] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:26:02,389 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:26:02] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:26:42,545 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:26:42] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:26:59,062 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:26:59] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:27:10,672 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:27:10] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:27:22,955 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:27:22] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:27:28,930 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:27:28] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:27:44,195 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:27:44] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:28:10,823 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:28:10] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:34:37,798 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:34:37] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 18:35:17,695 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 18:35:17] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:05:07,356 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:05:07] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:05:26,610 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:05:26] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:06:18,159 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 19:06:18,607 - INFO - _log -  * Restarting with stat
+2020-04-26 19:06:21,370 - WARNING - _log -  * Debugger is active!
+2020-04-26 19:06:21,371 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 19:06:25,847 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:06:25] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:06:42,994 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:06:42] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:08:05,909 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:08:05] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:08:20,963 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:08:20] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:08:51,391 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:08:51] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:09:06,553 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:09:06] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:09:14,502 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:09:14] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:09:30,168 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:09:30] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:09:49,383 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:09:49] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:12:59,267 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:12:59] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:13:10,147 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:13:10] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 19:13:10,183 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:13:10] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 19:13:11,171 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:13:11] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:13:35,087 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:13:35] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:14:19,059 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:14:19] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:14:39,406 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:14:39] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:15:07,667 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:15:07] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:27:54,747 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:27:54] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:30:10,792 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:30:10] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:30:46,471 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:30:46] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:31:07,340 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:31:07] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 19:31:07,365 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:31:07] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 19:31:08,447 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:31:08] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:32:15,364 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:32:15] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:37:26,412 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:37:26] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:37:35,251 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:37:35] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:37:48,889 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:37:48] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:38:01,007 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:38:01] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:42:17,740 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:42:17] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 19:43:41,620 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 19:43:41] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 20:16:39,699 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:16:39] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:16:39,779 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:16:39] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:18:57,759 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:18:57] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:18:57,844 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:18:57] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:21:27,177 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:21:27] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:21:27,199 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:21:27] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:21:48,661 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:21:48] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:21:48,669 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:21:48] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:22:20,472 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:22:20] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:22:20,481 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:22:20] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:23:04,668 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:23:04] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:23:04,770 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:23:04] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:23:48,135 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 20:23:48,395 - INFO - _log -  * Restarting with stat
+2020-04-26 20:23:49,282 - WARNING - _log -  * Debugger is active!
+2020-04-26 20:23:49,283 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 20:23:59,480 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 20:23:59,734 - INFO - _log -  * Restarting with stat
+2020-04-26 20:24:00,855 - WARNING - _log -  * Debugger is active!
+2020-04-26 20:24:00,856 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 20:24:21,313 - INFO - _log -  * Detected change in '/home/sachin/pyapp/ad/ad_base/api/services/Users.py', reloading
+2020-04-26 20:24:21,552 - INFO - _log -  * Restarting with stat
+2020-04-26 20:24:22,683 - WARNING - _log -  * Debugger is active!
+2020-04-26 20:24:22,683 - INFO - _log -  * Debugger PIN: 906-152-948
+2020-04-26 20:27:04,198 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:27:04] "[37mOPTIONS /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:27:04,303 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:27:04] "[37mPOST /users/add_user/ HTTP/1.1[0m" 200 -
+2020-04-26 20:27:12,383 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:27:12] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:27:12,428 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:27:12] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:27:13,531 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:27:13] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 20:28:49,174 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:28:49] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:28:49,202 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:28:49] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:28:50,231 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:28:50] "[37mGET /users/ HTTP/1.1[0m" 200 -
+2020-04-26 20:41:42,272 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:41:42] "[37mOPTIONS /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:41:42,300 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:41:42] "[37mPOST /login/ HTTP/1.1[0m" 200 -
+2020-04-26 20:41:43,355 - INFO - _log - 127.0.0.1 - - [26/Apr/2020 20:41:43] "[37mGET /users/ HTTP/1.1[0m" 200 -
