@@ -39,4 +39,6 @@ if SWAGGER_DISPLAY ==1 :
 from logger_config import *
 from .models.Users.UserModel import UserModel
 from .models.Users.UserLogins import UserLogins
+from .models.Ipl.Match import Match
+from .models.Ipl.Deliveries import Deliveries
 from .routes import *

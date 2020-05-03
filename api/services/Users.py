@@ -13,6 +13,7 @@ parser.add_argument('first_name')
 parser.add_argument('last_name', required=True)
 parser.add_argument('email', required=True)
 class User(Resource):
+    @jwt_required
     def get(self, id=None):
         '''Retrieve all users(GET method)'''
         if id is not None:
