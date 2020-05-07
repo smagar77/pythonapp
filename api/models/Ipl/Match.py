@@ -4,7 +4,7 @@ from api.models.mixin import ModelMixin
 class Match(db.Model, ModelMixin):
   __talename__='match'
   id = db.Column(db.Integer, primary_key=True)
-  season = db.Column(db.String(255))
+  season = db.Column(db.Integer)
   city = db.Column(db.String(255))
   date = db.Column(db.Date, default=datetime.date.today())
   team1 = db.Column(db.String(255))
@@ -20,4 +20,5 @@ class Match(db.Model, ModelMixin):
   venue = db.Column(db.String(255))
   umpire1 = db.Column(db.String(255))
   umpire2 = db.Column(db.String(255))
+  import_id = db.Column(db.Integer)
   deliveries = db.relationship('Deliveries', backref='Match', lazy='joined')

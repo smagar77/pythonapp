@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 import logging
 from flask_restful import Resource, reqparse
 from flask import jsonify, request
@@ -23,6 +23,7 @@ class User(Resource):
         result = [user_schema.dump(user) for user in data]
         return jsonify(result)
 
+    @jwt_required
     def post(self):
         '''Save new user'''
         if not request.is_json:
@@ -43,11 +44,13 @@ class User(Resource):
         if id is not None:
             try:
                 user = UserModel.query.get(id)
-                print(user)
-                user.delete()
-                return jsonify({'message':'User deleted successfully'})
+                if self.delete_user(user):
+                  return jsonify({'message':'User deleted successfully'})
             except Exception as e:
                 return jsonify({'message':str(e)})
+    def delete_uesr(self, user):
+      user.delete()
+      return True
 
 class UserLogin(Resource):
 
